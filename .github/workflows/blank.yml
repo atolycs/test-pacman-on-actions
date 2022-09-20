@@ -48,7 +48,7 @@ jobs:
               ./configure --with-internal-glib;\
               make;\
               sudo make install)
-      - name: Build and Install 
+      - name: Build and Install openssl
         run: |
           (wget https://www.openssl.org/source/openssl-1.1.1q.tar.gz;\
           tar xvf openssl-1.1.1q.tar.gz;\
@@ -56,6 +56,6 @@ jobs:
           ./Configure --prefix=/usr --openssldir=/etc/ssl --libdir=lib shared no-ssl3-method enable-ec_nistp_64_gcc_128 linux-x86_64 "-Wa,--noexecstack ${CPPFLAGS} ${CFLAGS} ${LDFLAGS}";\
           make depend;\
           make;\
-          make install_sw install_ssldirs install_man_docs;)
+          sudo make install_sw install_ssldirs install_man_docs;)
       
               

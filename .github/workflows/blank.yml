@@ -28,8 +28,8 @@ jobs:
       # Runs a single command using the runners shell
       - name: Install Deps
         run: |
-           apt update 
-           apt install -y meson cmake zstd file wget curl
+           sudo apt update 
+           sudo apt install -y meson cmake zstd file wget curl
 
       # Runs a set of commands using the runners shell
       - name: Build and Install libarchive
@@ -39,7 +39,7 @@ jobs:
               cd libarchive-3.6.1;\
               ./configure;\
               make;\
-              make install;)
+              sudo make install;)
       - name: Build and Install pkg-config
         run: |
              (wget https://pkgconfig.freedesktop.org/releases/pkg-config-0.29.2.tar.gz;\
@@ -47,5 +47,5 @@ jobs:
               cd pkg-config-0.29.2;\
               ./configure --with-internal-glib;\
               make;\
-              make install)
+              sudo make install)
               
